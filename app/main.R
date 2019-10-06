@@ -9,7 +9,6 @@
 ## Libraries
 library(listings)
 library(reticulate)
-library(collec)
 
 ## Load settings
 settings <- yaml::read_yaml("/root/pararius/settings.yml")
@@ -25,9 +24,9 @@ if(Sys.getenv("MAIL_HOST") == "" |
 }
 
 settings$place <- if (Sys.getenv("S_PLACE") != "") Sys.getenv("S_PLACE") else settings$place
-settings$min_price <- if (Sys.getenv("S_MIN_PRICE") != "") integer(Sys.getenv("S_MIN_PRICE")) else settings$min_price
-settings$max_price <- if (Sys.getenv("S_MAX_PRICE") != "") integer(Sys.getenv("S_MAX_PRICE")) else settings$max_price
-settings$bedrooms <- if (Sys.getenv("S_BEDROOMS") != "") integer(Sys.getenv("S_BEDROOMS")) else settings$bedrooms
+settings$min_price <- if (Sys.getenv("S_MIN_PRICE") != "") as.integer(Sys.getenv("S_MIN_PRICE")) else settings$min_price
+settings$max_price <- if (Sys.getenv("S_MAX_PRICE") != "") as.integer(Sys.getenv("S_MAX_PRICE")) else settings$max_price
+settings$bedrooms <- if (Sys.getenv("S_BEDROOMS") != "") as.integer(Sys.getenv("S_BEDROOMS")) else settings$bedrooms
 settings$email_to <- if (Sys.getenv("S_MAIL_TO") != "") Sys.getenv("S_MAIL_TO") else settings$email_to
 settings$email_from <- if (Sys.getenv("S_MAIL_FROM") != "") Sys.getenv("S_MAIL_FROM") else settings$email_from
 
